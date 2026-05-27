@@ -845,7 +845,9 @@ window.addEventListener("onWidgetLoad", function (obj) {
   const { fieldData, channel, overlay } = obj.detail;
 
   Object.assign(CONFIG, fieldData);
-  Object.freeze(CONFIG);
+  if (!window.DEMO_MODE) {
+    Object.freeze(CONFIG);
+  }
 
   OWNER.id        = channel.providerId;
   OWNER.name      = channel.userName;
