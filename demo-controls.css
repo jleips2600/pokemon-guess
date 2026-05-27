@@ -97,12 +97,8 @@
 }
 
 .chatUser {
-  color: var(--color-primary);
+  color: white;
   font-weight: bold;
-}
-
-.chatMessage.event .chatUser {
-  color: #ff7676;
 }
 
 #chatControls {
