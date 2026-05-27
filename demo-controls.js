@@ -4,6 +4,8 @@
   for standalone GitHub Pages interaction.
 */
 
+window.DEMO_MODE = true;
+
 const DEMO = {
 
   users: [
@@ -112,6 +114,7 @@ const DEMO = {
     },
 
   ]
+
 };
 
 
@@ -135,6 +138,7 @@ function addChatMessage(user, message, type = "normal") {
   container.appendChild(msg);
 
   container.scrollTop = container.scrollHeight;
+
 }
 
 
@@ -158,11 +162,12 @@ function simulateChat(user, userId, message) {
       }
     }
   }));
+
 }
 
 
 // ============================================================
-//  CONFIG PANEL
+//  SETTINGS PANEL
 // ============================================================
 
 function buildSettingsPanel() {
@@ -184,9 +189,13 @@ function buildSettingsPanel() {
     input.type = setting.type;
 
     if (setting.type === "checkbox") {
+
       input.checked = CONFIG[setting.key];
+
     } else {
+
       input.value = CONFIG[setting.key];
+
     }
 
     input.addEventListener("input", () => {
@@ -213,25 +222,31 @@ function buildSettingsPanel() {
 
 
 // ============================================================
-//  APPLY CONFIG
+//  APPLY CONFIG CHANGES
 // ============================================================
 
 function applyConfigChanges() {
 
-  document.documentElement.style
-    .setProperty("--color-primary", CONFIG.colorPrimary);
+  document.documentElement.style.setProperty(
+    "--color-primary",
+    CONFIG.colorPrimary
+  );
 
-  document.documentElement.style
-    .setProperty("--color-secondary", CONFIG.colorSecondary);
+  document.documentElement.style.setProperty(
+    "--color-secondary",
+    CONFIG.colorSecondary
+  );
 
-  document.documentElement.style
-    .setProperty("--color-tertiary", CONFIG.colorTertiary);
+  document.documentElement.style.setProperty(
+    "--color-tertiary",
+    CONFIG.colorTertiary
+  );
 
 }
 
 
 // ============================================================
-//  BUTTONS
+//  BUTTON EVENTS
 // ============================================================
 
 function bindDemoButtons() {
@@ -254,7 +269,11 @@ function bindDemoButtons() {
       const guess =
         CONFIG.prefix + SESSION.pokemon.name;
 
-      simulateChat(user.name, user.id, guess);
+      simulateChat(
+        user.name,
+        user.id,
+        guess
+      );
 
     });
 
@@ -313,7 +332,11 @@ function bindDemoButtons() {
 
       const user = DEMO.users[2];
 
-      simulateChat(user.name, user.id, message);
+      simulateChat(
+        user.name,
+        user.id,
+        message
+      );
 
       input.value = "";
 
@@ -323,7 +346,7 @@ function bindDemoButtons() {
 
 
 // ============================================================
-//  INIT
+//  INITIALIZE
 // ============================================================
 
 window.addEventListener("DOMContentLoaded", () => {
