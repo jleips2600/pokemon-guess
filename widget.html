@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="mainContainer">
+    <span id="titleStroke2" class="title">WHO'S THAT POKÉMON?</span>
+    <span id="titleStroke" class="title">WHO'S THAT POKÉMON?</span>
+    <span id="title" class="title">WHO'S THAT POKÉMON?</span>
+
+    <div id="starContainer">
+      <img id="star1" class="star" src="https://ohmysez.com/widgets/pokemonguess/assets/star.png" />
+      <img id="star2" class="star" src="https://ohmysez.com/widgets/pokemonguess/assets/star.png" />
+      <img id="star3" class="star" src="https://ohmysez.com/widgets/pokemonguess/assets/star.png" />
+      <img id="star4" class="star" src="https://ohmysez.com/widgets/pokemonguess/assets/star.png" />
+      <img id="star5" class="star" src="https://ohmysez.com/widgets/pokemonguess/assets/star.png" />
+    </div>
+
+    <div id="flash"></div>
+
+    <img id="pokeball" src="https://ohmysez.com/widgets/pokemonguess/assets/pokeball.png" />
+    <div id="ring" class="ring"> </div>    
+
+
+    <div id="pokemonImageContainer">
+      <img id="pokemonImage" />
+    </div>
+    <div id="timerBarContainer"> 
+      <div id="timerBar"></div>
+    </div>
+    <div id="displayContainer">
+
+      <!-- Correct guess pill -->
+      <div id="winPill" class="pill">
+        <div id="winPillName" class="pill-center">ohmySez</div>
+        <div id="winPillScore" class="pill-right">
+          1
+        </div>
+      </div>
+
+      <!-- Catch pill -->
+      <div id="messagePill">
+        Sez caught Bulbasaur! -- Added to Pokdex.
+      </div>
+
+      <!-- Timer end pill -->
+      <div id="losePill" class="pill">
+        <div id="losePillIcon" class="pill-left pill-red">
+          X
+        </div>
+        <div id="losePillName" class="pill-right">Pikachu</div>
+      </div>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+  <script src="se-simulate.js"></script>
+
+</body>
+</html>
