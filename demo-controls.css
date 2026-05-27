@@ -15,7 +15,7 @@
   border: 2px solid var(--color-primary);
   border-radius: 16px;
   padding: 16px;
-  max-height: 420px;
+  max-height: 300px;
   overflow-y: auto;
   backdrop-filter: blur(10px);
 }
