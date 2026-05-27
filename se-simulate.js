@@ -55,11 +55,11 @@ const SESimulate = {
   // Auto-fire on load — customize per project
   SESimulate.widgetLoad({
     channel: {
-        apiToken: "AMC1rWDriWWAa5R9kmDM8wqaLS5h00QNM2Sv-G8vBkkOn2AK",
+        apiToken: "12345",
         avatar: "https://static-cdn.jtvnw.net/jtv_user_pictures/79999200-4bb2-44b2-b1bc-34f3e...",
-        id: "5fcaa0aa7a0c6ce90347fea4",
-        providerId: "28580872",
-        username: "ohmysez"
+        id: "12345",
+        providerId: "12345",
+        username: "Pokemon Trainer"
     },
     currency: {
         code: "USD",
