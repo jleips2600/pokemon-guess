@@ -80,11 +80,11 @@ const SESimulate = {
         colorSecondary: "#2a75bb",
         cooldown: 0,
         oneGuessPerPlayer: false,
-        jwtToken: "eyJhbGciOiJJUzI1NiIsInR5cCI6IkpXVCJ9...",
+        jwtToken: null,
         prefix: "?",
         startMode: "auto",
         statsCommand: "?stats",
-        timeLimit: 3,
+        timeLimit: 30
   },
     overlay: {
         isEditorMode: false, // set to true to simulate editor mode
