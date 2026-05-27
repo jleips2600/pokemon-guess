@@ -251,14 +251,6 @@ function applyConfigChanges() {
 
 function bindDemoButtons() {
 
-  document.getElementById("startRoundBtn")
-    .addEventListener("click", () => {
-
-      GAME.startRound();
-
-    });
-
-
   document.getElementById("correctGuessBtn")
     .addEventListener("click", () => {
 
@@ -273,48 +265,6 @@ function bindDemoButtons() {
         user.name,
         user.id,
         guess
-      );
-
-    });
-
-
-  document.getElementById("wrongGuessBtn")
-    .addEventListener("click", () => {
-
-      const user = DEMO.users[1];
-
-      simulateChat(
-        user.name,
-        user.id,
-        CONFIG.prefix + "pikachu"
-      );
-
-    });
-
-
-  document.getElementById("fakeSubBtn")
-    .addEventListener("click", () => {
-
-      SESimulate.subscriber("DemoSub", 1);
-
-      addChatMessage(
-        "SYSTEM",
-        "DemoSub subscribed!",
-        "event"
-      );
-
-    });
-
-
-  document.getElementById("fakeRaidBtn")
-    .addEventListener("click", () => {
-
-      SESimulate.raid("PokeStreamer", 42);
-
-      addChatMessage(
-        "SYSTEM",
-        "PokeStreamer raided with 42 viewers!",
-        "event"
       );
 
     });
