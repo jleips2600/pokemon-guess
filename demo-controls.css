@@ -1,0 +1,128 @@
+#demoUI {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 360px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  z-index: 999999;
+  font-family: Arial, sans-serif;
+}
+
+#settingsPanel {
+  background: rgba(15,15,15,.95);
+  border: 2px solid var(--color-primary);
+  border-radius: 16px;
+  padding: 16px;
+  max-height: 420px;
+  overflow-y: auto;
+  backdrop-filter: blur(10px);
+}
+
+.settingRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.settingRow label {
+  font-size: 13px;
+}
+
+.settingRow input[type="text"],
+.settingRow input[type="number"] {
+  width: 90px;
+  background: #222;
+  border: 1px solid #444;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 8px;
+}
+
+.settingRow input[type="color"] {
+  width: 48px;
+  height: 32px;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#demoButtons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+#demoButtons button {
+  background: var(--color-primary);
+  color: black;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: .2s;
+}
+
+#demoButtons button:hover {
+  transform: scale(1.03);
+}
+
+#chatPanel {
+  background: rgba(15,15,15,.95);
+  border: 2px solid var(--color-secondary);
+  border-radius: 16px;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+}
+
+#chatMessages {
+  height: 260px;
+  overflow-y: auto;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.chatMessage {
+  color: white;
+  font-size: 14px;
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.chatUser {
+  color: var(--color-primary);
+  font-weight: bold;
+}
+
+.chatMessage.event .chatUser {
+  color: #ff7676;
+}
+
+#chatControls {
+  display: flex;
+  border-top: 1px solid rgba(255,255,255,.1);
+}
+
+#chatInput {
+  flex: 1;
+  border: none;
+  background: #222;
+  color: white;
+  padding: 12px;
+  outline: none;
+}
+
+#sendChatBtn {
+  border: none;
+  background: var(--color-secondary);
+  color: white;
+  padding: 0 18px;
+  cursor: pointer;
+}
