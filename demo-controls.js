@@ -9,36 +9,19 @@ window.DEMO_MODE = true;
 const DEMO = {
 
   users: [
-    { name: "Ash", id: "1" },
-    { name: "Misty", id: "2" },
-    { name: "Brock", id: "3" },
-    { name: "Gary", id: "4" },
+    { name: "Pokemon Trainer", id: "0", color: "#7FE7D6" },
+    { name: "Ash", id: "1", color: "#FF3B30" },
+    { name: "Misty", id: "2", color: "#007C91" },
+    { name: "Brock", id: "3", color: "#556B2F" },
+    { name: "Gary", id: "4", color: "#5B2C83" },
   ],
 
   settingsSchema: [
-
+    
     {
       key: "prefix",
-      label: "Command Prefix",
+      label: "Guess Prefix",
       type: "text"
-    },
-
-    {
-      key: "timeLimit",
-      label: "Time Limit",
-      type: "number"
-    },
-
-    {
-      key: "cooldown",
-      label: "Cooldown",
-      type: "number"
-    },
-
-    {
-      key: "oneGuessPerPlayer",
-      label: "One Guess Per Player",
-      type: "checkbox"
     },
 
     {
@@ -59,60 +42,6 @@ const DEMO = {
       type: "color"
     },
 
-    {
-      key: "gen1",
-      label: "Gen 1",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen2",
-      label: "Gen 2",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen3",
-      label: "Gen 3",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen4",
-      label: "Gen 4",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen5",
-      label: "Gen 5",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen6",
-      label: "Gen 6",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen7",
-      label: "Gen 7",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen8",
-      label: "Gen 8",
-      type: "checkbox"
-    },
-
-    {
-      key: "gen9",
-      label: "Gen 9",
-      type: "checkbox"
-    },
-
   ]
 
 };
@@ -122,14 +51,14 @@ const DEMO = {
 //  CHAT
 // ============================================================
 
-function addChatMessage(user, message, type = "normal") {
+function addChatMessage(name, color, message, type = "normal") {
 
   const msg = document.createElement("div");
 
   msg.className = `chatMessage ${type}`;
 
   msg.innerHTML = `
-    <span class="chatUser">${user}:</span>
+    <span class="chatUser" style="color: ${color};">${name}:</span>
     <span class="chatText">${message}</span>
   `;
 
@@ -140,31 +69,6 @@ function addChatMessage(user, message, type = "normal") {
   container.scrollTop = container.scrollHeight;
 
 }
-
-
-// ============================================================
-//  CHAT SIMULATION
-// ============================================================
-
-function simulateChat(user, userId, message) {
-
-  addChatMessage(user, message);
-
-  window.dispatchEvent(new CustomEvent("onEventReceived", {
-    detail: {
-      listener: "message",
-      event: {
-        data: {
-          displayName: user,
-          userId,
-          text: message
-        }
-      }
-    }
-  }));
-
-}
-
 
 // ============================================================
 //  SETTINGS PANEL
@@ -261,32 +165,25 @@ function bindDemoButtons() {
       const guess =
         CONFIG.prefix + SESSION.pokemon.name;
 
-      simulateChat(
-        user.name,
-        user.id,
-        guess
-      );
+      addChatMessage(user.name, user.color, guess);
 
+      GAME.correctGuess(user.name, user.id);
     });
 
 
   document.getElementById("sendChatBtn")
     .addEventListener("click", () => {
 
-      const input =
-        document.getElementById("chatInput");
+      const input = document.getElementById("chatInput");
 
       const message = input.value.trim();
 
       if (!message) return;
 
-      const user = DEMO.users[2];
+      const user = DEMO.users[0];
 
-      simulateChat(
-        user.name,
-        user.id,
-        message
-      );
+      addChatMessage(user.name, user.color, message);
+
 
       input.value = "";
 
@@ -306,3 +203,12 @@ window.addEventListener("DOMContentLoaded", () => {
   bindDemoButtons();
 
 });
+
+// ============================================================
+//  MOCK CHAT
+// ============================================================
+
+setInterval(() => {
+  const user = DEMO.users[1 + Math.floor(Math.random() * 3)];
+  addChatMessage(user.name, user.color, CONFIG.prefix + GAME.pickRandomPokemon().name);
+}, 4000);
